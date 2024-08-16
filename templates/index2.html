@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Property Hazard Regression and House Price Prediction</title>
+	<link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+	<header>
+		<div class="brand">
+			<h1>PropertyPro</h1>
+		</div>
+		<nav>
+			<ul>
+				
+				<li>
+                    <a href="">Regression</a>
+                </li>
+                <li>
+                    <a href="">Price</a>
+                </li>
+			</ul>
+		</nav>
+	</header>
+    <main>
+        <section class="price-box">
+			<h2>House Price Prediction</h2>
+			<form action="{{ url_for('predict')}}" method="post" id="price-form">
+				<label for="area">Enter the area in square feet:</label>
+				<input type="number" id="area" name="area" required>
+				
+				<label for="bhk">Enter the number of bedrooms (BHK):</label>
+				<input type="number" id="bhk" name="bhk" required>
+				
+				<label for="bathrooms">Enter the number of bathrooms:</label>
+				<input type="number" id="bathrooms" name="bathrooms" required>
+				
+				<label for="furnishing">Furnishing status:</label>
+				<select id="furnishing" name="furnishing" required>
+					<option value="Unfurnished">Unfurnished</option>
+					<option value="Semi-Furnished">Semi-Furnished</option>
+					<option value="Fully-Furnished">Fully-Furnished</option>
+				</select>
+			
+				<label for="locality">Enter the locality:</label>
+				<input type="text" id="locality" name="locality" required>
+				<select id="locality" name="locality" required>
+					<option value="Dilshad Garden">Dilshad Garden</option>
+					<option value="Dwarka">Dwarka</option>
+					<option value="Greater Kailash">Greater Kailash</option>
+					<option value="Hauz Khas">Hauz Khas</option>
+					<option value="Karol Bagh">Karol Bagh</option>
+					<option value="Kirti Nagar">Kirti Nagar</option>
+					<option value="Lajpat Nagar">Lajpat Nagar</option>
+					<option value="Laxmi Nagar">Laxmi Nagar</option>
+					<option value="Okhla">Okhla</option>
+					<option value="Punjabi Bagh">Punjabi Bagh</option>
+					<option value="Rohini">Rohini</option>
+					<option value="Saket">Saket</option>
+					<option value="Shahdara">Shahdara</option>
+					<option value="Uttam Nagar">Uttam Nagar</option>							
+				</select>
+				
+				<label for="parking">Enter the number of parking spaces:</label>
+				<input type="number" id="parking" name="parking" required>
+			
+				<label for="status">Property status:</label>
+				<select id="status" name="status" required>
+					<option value="Ready_to_move">Ready to Move</option>
+					<option value="Under_construction">Under Construction</option>
+				</select>
+			
+				<label for="transaction">Transaction type:</label>
+				<select id="transaction" name="transaction" required>
+					<option value="Resale">Resale</option>
+					<option value="New">New</option>
+				</select>
+			
+				<label for="type">Property type:</label>
+				<select id="type" name="type" required>
+					<option value="Apartment">Apartment</option>
+					<option value="House">House</option>
+				</select>
+			
+				<label for="per_sqft">Price per square foot:</label>
+				<input type="number" id="per_sqft" name="per_sqft" required>
+			
+				<button class="button-75" role="button"><span class="text">Get predicted price</span></button>
+			</form>
+			
+			<div id="price-results">
+				{{ prediction_text }}
+			</div>
+		</section>
+    </main>
+	
+</body>
+</html>
